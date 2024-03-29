@@ -1,0 +1,71 @@
+body{
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  font-size: 16px;
+}
+*{
+  box-sizing: border-box;
+}
+.container{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 80px;
+}
+.mySwiper{
+  height: 100vh;
+}
+.page-container>div{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mySwiper2{
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1000;
+  flex-shrink: 0;
+}
+.card{
+  background: #fff;
+  width: 678px;
+  height: 688px;
+  margin-bottom: 20px;
+}
+.mySwiper2 .swiper-slide{
+  height: auto;
+}
+.slide2-text{
+  position: absolute;
+  width: 610px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+}
+.swiper-scrollbar-custom{
+  width: 10px;
+  height: 216px;
+  border-radius: 30px;
+  background: #D9D9D9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2%;
+}
+.swiper-scrollbar-drag{
+  background: #02C2FF;
+  width: 10px;
+  border-radius: 30px;
+
+}
+.parallax-bg{
+  font-size: 1000px;
+  color: #fff;
+  opacity: .1;
+  position: absolute;
+  inset: 0;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Swiper page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="swiper mySwiper swiper-h">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide page-container">
+            <div class="container" style="background: #fff">
+                <span>Vertical Slide 1</span>
+            </div>
+        </div>
+        <div class="swiper-slide page-container nested" style="background: #e8a1a1">
+            <div class="container">
+                <div class="swiper mySwiper2 swiper-v">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card"></div>
+                        </div>
+                    </div>
+                    <div class="parallax-bg" data-swiper-parallax-x="-23%">TEST</div>
+                </div>
+                <div class="slide2-text">
+                    <h1>Up-To-Date conten</h1>
+                    <p>MDO team of seasoned professionals closely monitors mining news and press releases. As a
+                        result, our Mining Intelligence Database is always updated with the latest industry
+                        information available.</p>
+                </div>
+                <div class="swiper-scrollbar-custom"></div>
+            </div>
+        </div>
+        <div class="swiper-slide page-container">
+            <div class="container" style="background: #ca88d3">
+                <span>Vertical Slide 3</span>
+            </div>
+        </div>
+        <div class="swiper-slide page-container">
+            <div class="container" style="background: #726d75">
+                <span>Vertical Slide 4</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let s1 = document.querySelector('.mySwiper');
+        let s2 = document.querySelector('.mySwiper2');
+        let swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            slidesPerView: 1,
+            mousewheel: {
+                forceToAxis: true,
+                enabled:true,
+                noSwiping: false,
+                noMousewheelClass: 'swiper-no-swiping',
+                releaseOnEdges: true
+            },
+            allowTouchMove: false,
+        });
+        let swiper2 = new Swiper(".mySwiper2", {
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            freeMode: true,
+            freeModeSticky: true,
+            watchSlidesProgress: true,
+            watchSlidesVisibility: true,
+            scrollbar: {
+                el: ".swiper-scrollbar-custom",
+                hide: false,
+            },
+            parallax: true,
+            mousewheel: {
+                forceToAxis: true,
+                enabled:true
+            },
+        });
+
+        swiper.on('slideChange', function (){
+            if(this.slides[this.activeIndex].classList.contains('nested')){
+                this.slides[this.activeIndex].classList.add('swiper-no-swiping');
+            }
+        })
+
+        swiper2.on('progress', function (){
+            if(this.isEnd || this.isBeginning){
+                s1.querySelectorAll('.nested').forEach(i => {
+                    i.classList.remove('swiper-no-swiping')
+                })
+            }
+        })
+
+    });
+
+</script>
+</body>
+
+</html>
